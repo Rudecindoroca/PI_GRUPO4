@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+
+
 <!-- Include Head -->
+<%- include('./partials/head') %>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +13,9 @@
 			<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../public/stylesheets/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./css/app.css">
+	<link rel="stylesheet" href="../public/stylesheets/app.css">
 </head>
 <body>
 	<!-- Header -->
@@ -90,50 +93,33 @@
 				<h2 class="products-title">Productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="product.html">
-						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
+			
+					<% for( let i = 0; i < listaProductos.length; i++ ) { %>
+
+						<section class="product-box">
+
+							<a href="product.html">
+								<figure class="product-box_image">
+									<img src="images/products/img-cafetera-moulinex.jpg" alt="cafetera moulinex">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= listaProductos[i].nombre_producto %> </h2>
+									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
+										delectus ex</p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+
+						</section>
+
+
+					<% } %>
+
+	
+		
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="product.html">
-						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="product.html">
-						<figure class="product-box_image">
-							<img src="images/products/default-image.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Nombre del producto</h2>
-							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque
-								delectus ex</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+
+<!--
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="product.html">
@@ -151,6 +137,8 @@
 			</div>
 		</div>
 	</div>
+
+	-->
 
 
 	<!-- footer -->

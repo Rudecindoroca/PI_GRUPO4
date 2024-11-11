@@ -1,14 +1,14 @@
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 
-const indexController = {
-  index: function (req, res) {
+const productsController = {
+  detalle: function (req, res) {
 
     db.Product.findAll()
     .then( function (result) {
 
 
-      
+      return res.send(results)
 
       return res.render("index", {listaProductos: result })
       
@@ -25,4 +25,4 @@ const indexController = {
 }
 
 
-module.exports = indexController;
+module.exports = productsController ;
