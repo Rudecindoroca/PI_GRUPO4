@@ -8,8 +8,6 @@ const indexController = {
     .then( function (result) {
 
 
-      
-
       return res.render("index", {listaProductos: result })
       
     })
