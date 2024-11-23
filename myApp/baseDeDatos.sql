@@ -75,7 +75,7 @@ Unisex
 Material: 100% algodón
 Importado
 *Esta prenda ha sido teñida individualmente, lo que produce un resultado único. El color puede desvanecerse o desteñirse después del lavado.',
-    imagen = 'LazTee.jpg',
+    imagen = 'LaztTee.jpg',
     user_id = 3
 WHERE id = 2;
 
