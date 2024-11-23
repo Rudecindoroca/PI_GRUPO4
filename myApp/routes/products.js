@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 
-router.get('/detalle/:id',productsController.detalle);
+router.get('/detail/:id',productsController.detalle);
 
 
 module.exports = router;
