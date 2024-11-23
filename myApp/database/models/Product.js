@@ -22,10 +22,22 @@ module.exports = function(sequelize, datatype) {
         user_id: {
             type: datatype.INTEGER,
             references: {
-                model: 'Users', // name of the related table
-                key: 'id'       // key in the Users table to reference
+                model: 'Users', // nombre de la tabla relacionada
+                key: 'id'       // primary key de esa tabla
             }
-        }
+        },
+        created_at: {
+            type: datatype.DATE,
+           
+        },
+        updated_at: {
+            type: datatype.DATE,
+        },
+        deleted_at: {
+            type: datatype.DATE,
+        },
+        
+
     }
     
     let config = {
@@ -35,6 +47,13 @@ module.exports = function(sequelize, datatype) {
     }
     
     const Product = sequelize.define(alias, cols, config); 
+
+    Product.associate = function (models) {
+        Product.belongsTo(models.Users, { 
+            as: "users", 
+            foreignKey: "user_id",
+        });
+    };
 
    
     return Product;

@@ -129,3 +129,12 @@ Importado',
     imagen = 'DogcrownTEE.jpg',
     user_id = 1
 WHERE id = 5;
+
+
+--para poder ordenar los prodcutos por ultimo creado a primero agregado:
+
+SELECT * FROM proyecto_db.Products;
+ALTER TABLE proyecto_db.Products 
+ADD COLUMN createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ADD COLUMN deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP;
