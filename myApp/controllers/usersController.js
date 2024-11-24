@@ -37,22 +37,36 @@ login: (req, res)=>{
 },
 
 loginPost: function (req, res) {
-  
-},
 
-store: function (req, res) {
-  
   let form = req.body;
 
-  db.Users.create(form)
+  let filtrado = {
+    where: {email: form.email}
+  }
+
+  db.Users.findOne(filtrado)
   .then(function (results) {
-    return res.send(results);
+
+    if (!results) {
+      return res.send("Usuario no encontrado");
+    } else {
+      let check = bcryptjs.compareSync(form.contrasena, results.contrasena);
+      if (check) {
+        return res.send("Usuario logueado");  
+      } else {
+        return res.send("Contraseña incorrecta");
+      }
+    }
+
   })
   .catch(function (error) {
-    return console.log(error);
+    return console.log(error); ;
   })
 
-}
+  
+
+  //return res.redirect("/")
+},
 
 };
 
