@@ -6,8 +6,18 @@
 <%- include('./partials/head') %>
 
 <body>
-	<%- include('./partials/header') %>
+
+	<% if (locals.userlogeado != undefined) { %>
+    
+		<%- include('./partials/headerLogeado') %>
 	
+	  <% } else { %>
+		 
+		<%- include('./partials/header') %>
+	
+	  <% } %>
+	
+
 	
 	<!-- Banner -->
 	<div class="banner">

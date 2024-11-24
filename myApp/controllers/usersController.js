@@ -53,6 +53,8 @@ loginPost :(req, res) => {
       let check = bcryptjs.compareSync(form.contrasena, results.contrasena)
       if (check) {
 
+        req.session.userlogeado = results.dataValues;
+
         return res.redirect("/")
         
       } else {
@@ -67,7 +69,17 @@ loginPost :(req, res) => {
     return console.log(err);
     
   })
+},
+logout: function (req,res) {
+
+  req.session.destroy();
+
+  return res.redirect("/")
+
+  
 }
+
+
 }
 
 module.exports = userController;
