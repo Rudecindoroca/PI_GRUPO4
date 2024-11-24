@@ -37,7 +37,17 @@ login: (req, res)=>{
 },
 
 store: function (req, res) {
-  return res.send(req.body)
+  
+  let form = req.body;
+
+  db.Users.create(form)
+  .then(function (results) {
+    return res.send(results);
+  })
+  .catch(function (error) {
+    return console.log(error);
+  })
+
 }
 
 };
