@@ -61,6 +61,7 @@ loginPost: (req, res) => {
       
   });
 
-};
+}
+}
 
 module.exports = userController;
