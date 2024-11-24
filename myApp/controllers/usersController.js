@@ -36,31 +36,37 @@ login: (req, res)=>{
   return res.render("login")
 },
 
-loginPost: (req, res) => {
+loginPost :(req, res) => {
   let form = req.body;
   let filtro = {
-      where: {email: form.email}
+    where:{email: form.email}
   }
-  db.User.findOne(filtro)
-  .then((result) => {
 
-      if (!result) {
-          return res.send("No hay mail")
-      } else {
-          let check = bcryptjs.compareSync(form.contrasena , result.contrasena)
-          if (check) {
-              req.session.user = result.dataValues;
-              return res.redirect("/");
-          } else {
-              return res.send("La contraseña es incorrecta");
-          }
-      }
+  db.Users.findOne(filtro)
+  .then(function (results) {
+    if (!results) {
 
-  }).catch((err) => {
-      return console.log(err);
+      return res.send("no hay mail")
       
-  });
+    } else {
 
+      let check = bcryptjs.compareSync(form.contrasena, results.contrasena)
+      if (check) {
+
+        return res.redirect("/")
+        
+      } else {
+
+        return res.send("la contrasena esta mal")
+        
+      }
+      
+    }
+
+  }).catch(function (err) {
+    return console.log(err);
+    
+  })
 }
 }
 
