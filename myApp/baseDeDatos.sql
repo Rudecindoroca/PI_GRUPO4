@@ -138,3 +138,26 @@ ALTER TABLE proyecto_db.Products
 ADD COLUMN createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 ADD COLUMN updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 ADD COLUMN deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP;
+
+
+--agrego 2 prodcutos mas para ver si se ordenan por orden de creacion:
+
+INSERT INTO proyecto_db.Products (nombre_producto, descripcion, imagen, user_id, created_at)
+VALUES ('Remera negra relajada', 
+        'Camiseta de corte regular. Cuello redondo. Mangas cortas.',
+        'remeraNegra.jpg', 
+        10,
+        NOW());
+
+
+
+INSERT INTO proyecto_db.Products (nombre_producto, descripcion, imagen, user_id, created_at)
+VALUES ('Remera deportiva', 
+        'Camiseta fabricada con tejido ajustado de alta elasticidad.
+
+Cuello redondo y mangas cortas.
+Costuras planas para evitar roces.
+Detalle de logotipo estampado en el dobladillo',
+        'RemeradeportivaNegra.jpg', 
+        1,
+        NOW());

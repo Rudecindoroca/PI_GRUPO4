@@ -19,10 +19,6 @@ const productsController = {
     db.Product.findByPk(id, filtrado)
       .then(function (result ) {
 
-    
-
-
-
         
         return res.render("product", { producto: result, titulo: 'Detalle Producto' });
       })
