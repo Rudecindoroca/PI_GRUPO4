@@ -8,6 +8,12 @@ const userController = require('../controllers/usersController');
 /* crear sufijos Registro*/
 router.get('/register', userController.register);
 
+router.get('/login', userController.login);
+
+
+
+router.post('/register', userController.registerPost);
+
 
 
 
