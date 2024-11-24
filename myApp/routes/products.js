@@ -6,5 +6,7 @@ var router = express.Router();
 
 router.get('/detail/:id',productsController.detalle);
 
+router.get('/busqueda',productsController.busqueda);
+
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const db = require('../database/models');
 
+const op = db.Sequelize.Op;
 
 const productsController = {
   detalle: function (req, res) {
@@ -27,6 +28,24 @@ const productsController = {
         return res.status(500).send('Error en el servidor');
       });
   },
+
+  busqueda: function (req, res) {
+    
+    let qs = req.query.producto;
+
+    let filtrado = {
+      where: [{title: {[op.like]: `%${qs}%`}}]
+    }
+
+    db.Product.findAll(filtrado)
+    .then(function (results) {
+      return res.send(results);
+    })
+    .catch(function (error) {
+      return console.log(error);
+    })
+  }
+
   
 };
 
