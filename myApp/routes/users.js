@@ -14,7 +14,7 @@ router.get('/login', userController.login);
 
 router.post('/register', userController.registerPost);
 
-router.post('/login', userController.store);
+router.post('/login', userController.loginPost);
 
 
 

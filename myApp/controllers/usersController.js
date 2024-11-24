@@ -36,6 +36,10 @@ login: (req, res)=>{
   return res.render("login")
 },
 
+loginPost: function (req, res) {
+  
+},
+
 store: function (req, res) {
   
   let form = req.body;
