@@ -135,9 +135,9 @@ WHERE id = 5;
 
 SELECT * FROM proyecto_db.Products;
 ALTER TABLE proyecto_db.Products 
-ADD COLUMN createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-ADD COLUMN updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-ADD COLUMN deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP;
+ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ADD COLUMN deleted_at TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP;
 
 
 --agrego 2 prodcutos mas para ver si se ordenan por orden de creacion:
@@ -146,7 +146,7 @@ INSERT INTO proyecto_db.Products (nombre_producto, descripcion, imagen, user_id,
 VALUES ('Remera negra relajada', 
         'Camiseta de corte regular. Cuello redondo. Mangas cortas.',
         'remeraNegra.jpg', 
-        10,
+        3,
         NOW());
 
 
