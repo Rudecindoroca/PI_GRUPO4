@@ -8,5 +8,9 @@ router.get('/detail/:id',productsController.detalle);
 
 router.get('/busqueda',productsController.busqueda);
 
+router.get('/create',productsController.create); 
+
+router.post('/create',productsController.store);
+
 
 module.exports = router;

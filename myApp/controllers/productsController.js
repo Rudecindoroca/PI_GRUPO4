@@ -1,6 +1,7 @@
 const db = require('../database/models');
 
 const op = db.Sequelize.Op;
+const bcryptjs = require('bcryptjs');
 
 const productsController = {
   detalle: function (req, res) {
@@ -44,9 +45,29 @@ const productsController = {
     .catch(function (error) {
       return console.log(error);
     })
-  }
+  },
 
+  create: function (req, res) {
+    return res.render("product-add");
+  },
   
+  store:function (req,res) {
+
+    let productoCreado = req.body;
+   
+    
+    db.Product.create(productoCreado)
+    .then(function (results) {
+        return res.redirect("/");
+    })
+    .catch(function (error) {
+      console.log(error);
+      
+    })
+  },
+
+ 
+
 };
 
 module.exports = productsController;

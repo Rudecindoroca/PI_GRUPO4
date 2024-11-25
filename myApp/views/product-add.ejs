@@ -27,10 +27,24 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> //////////////////////////////// <br>
-				Eliminá está etiqueta h2 y creá en su lugar el formulario para agregar productos al catálogo <br>
-				////////////////</h2>
 
+			<form class="form" action="/products/create" method="post" >
+
+				
+				<div class="input-container ic1">
+				  <input id="name" class="form-input" type="text" name="nombre_producto" placeholder="Product" />
+			  </div>
+				<div class="input-container ic1">
+					<input id="email" class="form-input" type="text" name="descripcion" placeholder="descripcion" />
+				</div>
+		
+				<div class="input-container ic1">
+					<input id="password" class="form-input" type="text" name="imagen" placeholder="image" />
+				</div>
+				<button type="text" class="submit">Crear</button>
+			  </form>
+		
+			
 
 	<!-- footer -->
 	<footer class="main-footer">
