@@ -9,8 +9,10 @@
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
+  --extra-light-gray: #f5f5f5; /* Gris claro adicional */
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --white: #ffffff; /* Blanco */
+  --base-font-family: 'Roboto', sans-serif;
 }
 
 
@@ -68,7 +70,8 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--gray);
+  color: var(--white); /* Se agrega el color blanco a la letra */
 }
 
 .main-header_home-link,
