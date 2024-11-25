@@ -162,6 +162,9 @@ hr {
   background-size: cover;
   background-position: center center;
   height: 100px;
+  /*width: 600px;*/
+  /*margin: 0 auto;  Centra horizontalmente */
+  /*display: block;  Asegura que el elemento se comporte como un bloque */
 }
 
 
@@ -175,6 +178,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  /*font-family: "Monotype Wild West", "Playfair Display", "Times New Roman", serif;*/
 }
 
 .product-box {
