@@ -31,15 +31,15 @@ const productsController = {
 
   busqueda: function (req, res) {
     
-    let qs = req.query.producto;
+    let qs = req.query.search;
 
     let filtrado = {
-      where: [{title: {[op.like]: `%${qs}%`}}]
+      where: [{nombre_producto: {[op.like]: `%${qs}%`}}]
     }
 
     db.Product.findAll(filtrado)
     .then(function (results) {
-      return res.send(results);
+      return res.render("search-results", {productos: results});
     })
     .catch(function (error) {
       return console.log(error);
