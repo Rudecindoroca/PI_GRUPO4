@@ -33,10 +33,21 @@ registerPost: (req, res)=>{
 
 login: (req, res)=>{
 
-  return res.render("login")
+  // Verifica si el usuario ya está logueado
+  if (req.session.userlogeado !== undefined) {
+    return res.redirect('/'); // Redirige a la página principal si ya está logueado
+  }
+
+  return res.render("login") // Muestra la vista de login si no está logueado
 },
 
 loginPost :(req, res) => {
+
+  // Verifica si el usuario ya está logueado
+  if (req.session.userlogeado !== undefined) {
+    return res.redirect('/'); // Redirige a la página principal si ya está logueado
+  }
+
   let form = req.body;
   let filtro = {
     where:{email: form.email}

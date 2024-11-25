@@ -48,13 +48,21 @@ const productsController = {
   },
 
   create: function (req, res) {
+    
+    if (req.session.userlogeado === undefined) {
+      return res.redirect('/'); // Redirige a la página principal si no está logueado
+    }
     return res.render("product-add");
   },
   
   store:function (req,res) {
 
+    if (req.session.userlogeado === undefined) {
+      return res.redirect('/'); // Redirige a la página principal si no está logueado
+    }
+
     let productoCreado = req.body;
-    
+
     productoCreado.user_id = req.session.userlogeado.id;
     db.Product.create(productoCreado)
     .then(function (results) {
