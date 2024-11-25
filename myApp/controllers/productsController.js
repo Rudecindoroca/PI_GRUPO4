@@ -55,7 +55,7 @@ const productsController = {
 
     let productoCreado = req.body;
    
-    
+    productoCreado.user_id = req.session.userlogeado.id;
     db.Product.create(productoCreado)
     .then(function (results) {
         return res.redirect("/");
