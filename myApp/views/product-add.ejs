@@ -44,31 +44,6 @@
 				<button type="text" class="submit">Crear</button>
 			  </form>
 
-
-			  if (!results) {
-
-				return res.send("no hay mail")
-				
-			  } else {
-		  
-				let check = bcryptjs.compareSync(form.contrasena, results.contrasena)
-				if (check) {
-		  
-				  req.session.userlogeado = results.dataValues;
-		  
-				  return res.redirect("/")
-				  
-				} else {
-		  
-				  return res.send("la contrasena esta mal")
-				  
-				}
-				
-			  }
-		  
-		
-			
-
 	<!-- footer -->
 	<footer class="main-footer">
 		<div class="container">
