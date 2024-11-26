@@ -64,6 +64,16 @@ const productsController = {
     let productoCreado = req.body;
 
     productoCreado.user_id = req.session.userlogeado.id;
+
+    // Validación de campos vacíos
+    if (productoCreado.imagen === "") {
+        return res.send("Debe insertar imagen");
+    } else if (productoCreado.producto === "") {
+        return res.send("Debe insertar el nombre del producto agregado");
+    } else if (productoCreado.descripcion === "") {
+        return res.send("Debe agregar una descripción sobre el producto agregado");
+    }
+
     db.Product.create(productoCreado)
     .then(function (results) {
         return res.redirect("/");

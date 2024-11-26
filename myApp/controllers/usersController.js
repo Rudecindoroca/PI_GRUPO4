@@ -13,6 +13,14 @@ registerPost: (req, res)=>{
 
   let form = req.body;
 
+  if (!form.email || form.email.trim() === "") {
+    return res.send("Ingrese su email");
+  } else if (!form.usuario || form.usuario.trim() === "") {
+    return res.send("Ingrese un nombre");
+  } else if (!form.contrasena || form.contrasena.trim() === "") {
+    return res.send("Ingrese la contraseña");
+  }
+
   form.contrasena = bcryptjs.hashSync(form.contrasena, 10);
 
  
@@ -49,33 +57,29 @@ loginPost :(req, res) => {
   }
 
   let form = req.body;
+   // Validación de campos vacíos
+   if (!req.body || !req.body.email || !req.body.contrasena) {
+    return res.send("Todos los campos son obligatorios");
+  }
   let filtro = {
     where:{email: form.email}
   }
 
   db.Users.findOne(filtro)
+  
   .then(function (results) {
-    if (!results) {
-
-      return res.send("no hay mail")
-      
-    } else {
-
-      let check = bcryptjs.compareSync(form.contrasena, results.contrasena)
-      if (check) {
-
+    if(!results){
+    return res.send("Este email no se encuentra");
+  } if (results){
+    let data = bcryptjs.compareSync(form.contrasena, results.contrasena);
+    if(data){
         req.session.userlogeado = results.dataValues;
-
         return res.redirect("/")
-        
-      } else {
-
-        return res.send("la contrasena esta mal")
-        
-      }
-      
+    }else{
+        return res.send("La contraseña es incorrecta");
     }
-
+}
+    
   }).catch(function (err) {
     return console.log(err);
     

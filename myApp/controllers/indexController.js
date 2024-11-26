@@ -2,10 +2,15 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 const indexController = {
-  index: function (req, res) {
+ index: function (req, res) {
+
+  
+    
 
     db.Product.findAll({
-      order: [["created_at", "DESC"]] // Ordenar por 'created_at' de más nuevo a más viejo
+      order: [["created_at", "DESC"]],
+    
+       // Ordenar por 'created_at' de más nuevo a más viejo
     })
     .then( function (result) {
 
@@ -22,7 +27,7 @@ const indexController = {
   },
 
 
-}
+} 
 
 
 module.exports = indexController;
